@@ -1,142 +1,125 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
-}
-
 .main {
+  min-height: 100vh;
+}
+
+.hero {
+  min-height: 80vh;
   display: flex;
-  flex: 1;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+  align-items: center;
+  background: radial-gradient(circle at top right, var(--color-pink-100), transparent 50%);
+  padding: 4rem 0;
 }
 
-.intro {
+.heroContent {
+  max-width: 600px;
+}
+
+.heroContent h1 {
+  margin-bottom: 1.5rem;
+  color: var(--color-dark);
+}
+
+.heroContent p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.errorContainer {
+  min-height: 80vh;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: white;
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
+.errorContent {
+  text-align: center;
+  max-width: 500px;
 }
 
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
+.errorCode {
+  font-size: 8rem;
+  font-family: var(--font-serif);
+  color: var(--color-pink-100);
+  line-height: 1;
+  margin-bottom: 0;
 }
 
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
+.divider {
+  width: 60px;
+  height: 3px;
+  background: var(--color-pink-500);
+  margin: 1.5rem auto;
 }
 
-.ctas {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
+.errorTitle {
+  font-size: 2rem;
+  font-family: var(--font-serif);
+  margin-bottom: 1rem;
 }
 
-.ctas a {
+.errorMessage {
+  color: #6b7280;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.errorIcon {
+  margin-bottom: 2rem;
   display: flex;
   justify-content: center;
+}
+
+.heroActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.featuresSection {
+  margin-top: -4rem;
+  padding-bottom: 6rem;
+  position: relative;
+  z-index: 10;
+}
+
+.iconWrapper {
+  display: flex;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background-color: var(--color-pink-100);
+  color: var(--color-pink-600);
+  border-radius: 50%;
+  margin: 0 auto 1.5rem auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-pink-600);
+  text-decoration: none;
   font-weight: 500;
+  margin-top: 1rem;
+  transition: gap 0.2s ease;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.link:hover {
+  gap: 0.75rem;
+  color: var(--color-pink-500);
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+@media (max-width: 768px) {
+  .heroContent {
+    margin-top: 4rem;
   }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-}
-
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
+  .featuresSection {
+    margin-top: 2rem;
   }
 }

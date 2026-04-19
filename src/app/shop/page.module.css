@@ -1,0 +1,76 @@
+.shopContainer {
+  min-height: 100vh;
+  padding-bottom: 6rem;
+}
+
+.shopHeader {
+  background: radial-gradient(circle at top center, var(--color-pink-100), transparent 70%);
+  padding: 4rem 0 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.shopHeader h1 {
+  margin-bottom: 1rem;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.productCard {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.productImagePlaceholder {
+  height: 250px;
+  background-color: var(--color-pink-50);
+  position: relative;
+  border-bottom: 1px solid var(--color-pink-100);
+}
+
+.categoryBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  color: var(--color-pink-600);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--color-pink-200);
+}
+
+.productInfo {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.productInfo h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 1.5rem;
+  color: var(--color-pink-600);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.addToCartBtn {
+  width: 100%;
+  margin-top: auto;
+  gap: 0.5rem;
+}

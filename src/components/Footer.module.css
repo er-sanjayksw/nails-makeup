@@ -1,0 +1,52 @@
+.footer {
+  background-color: var(--color-pink-50);
+  padding-top: 4rem;
+  margin-top: 4rem;
+  border-top: 1px solid var(--color-pink-100);
+}
+
+.footerGrid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.footer h3 {
+  color: var(--color-pink-600);
+  margin-bottom: 1rem;
+}
+
+.footer h4 {
+  color: var(--color-dark);
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+}
+
+.footer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer ul li a {
+  text-decoration: none;
+  color: var(--color-muted);
+  transition: color 0.2s ease;
+}
+
+.footer ul li a:hover {
+  color: var(--color-pink-500);
+}
+
+.bottomBar {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+.bottomBar p {
+  color: var(--color-pink-100);
+  margin: 0;
+}

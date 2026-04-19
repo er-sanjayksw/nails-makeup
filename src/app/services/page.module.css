@@ -1,0 +1,75 @@
+.servicesContainer {
+  min-height: 100vh;
+  padding-bottom: 6rem;
+}
+
+.servicesHeader {
+  background: radial-gradient(circle at top left, var(--color-pink-100), transparent 70%);
+  padding: 4rem 0 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.servicesList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.serviceCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.serviceContent {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.serviceContent h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.serviceMeta {
+  color: var(--color-pink-600);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dot {
+  color: var(--color-pink-200);
+}
+
+.description {
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.serviceAction {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .serviceCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .serviceContent {
+    padding-right: 0;
+  }
+  .serviceAction {
+    width: 100%;
+  }
+  .serviceAction .btn {
+    width: 100%;
+  }
+}
