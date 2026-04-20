@@ -33,6 +33,8 @@ jobs:
 
       - name: 📁 Prepare standalone deployment
         run: |
+          # Ensure necessary directories exist
+          mkdir -p .next/standalone/.next/
           # Copy static assets into standalone directory
           cp -r .next/static .next/standalone/.next/static
           # Copy public assets into standalone directory
