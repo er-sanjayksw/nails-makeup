@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -22,7 +22,7 @@ model User {
 model Service {
   id          String      @id @default(cuid())
   name        String
-  description String?
+  description String?    @db.Text
   price       Float
   durationMin Int         @default(60)
   imageUrl    String?
@@ -34,7 +34,7 @@ model Service {
 model Product {
   id          String      @id @default(cuid())
   name        String
-  description String?
+  description String?    @db.Text
   price       Float
   salePrice   Float?
   sku         String?     @unique
@@ -84,7 +84,7 @@ model OrderItem {
 model GalleryImage {
   id          String   @id @default(cuid())
   title       String?
-  description String?
+  description String?  @db.Text
   url         String
   category    String   @default("General")
   albumId     String?
@@ -95,7 +95,7 @@ model GalleryImage {
 model Album {
   id          String         @id @default(cuid())
   name        String
-  description String?
+  description String?  @db.Text
   coverImage  String?
   images      GalleryImage[]
   createdAt   DateTime       @default(now())
@@ -105,12 +105,12 @@ model BlogPost {
   id              String   @id @default(cuid())
   title           String
   slug            String   @unique
-  content         String
-  excerpt         String?
+  content         String   @db.Text
+  excerpt         String?  @db.Text
   coverImage      String?
   authorName      String?  @default("KSW Team")
   keywords        String?  // SEO Keywords
-  metaDescription String?  // SEO Description
+  metaDescription String?  @db.Text // SEO Description
   published       Boolean  @default(false)
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
