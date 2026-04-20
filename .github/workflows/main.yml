@@ -1,0 +1,49 @@
+name: 🚀 Deploy Hourlyplace to cPanel
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+    steps:
+      - name: 🚚 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🧱 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 💎 Generate Prisma Client
+        run: npx prisma generate
+
+      - name: 🏗️ Build Project
+        run: npm run build
+
+      - name: 📁 Prepare standalone deployment
+        run: |
+          # Copy static assets into standalone directory
+          cp -r .next/static .next/standalone/.next/static
+          # Copy public assets into standalone directory
+          cp -r public .next/standalone/public
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: 65.109.25.210
+          username: pinky@nails.kswtechzone.com
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
+          server-dir: ./
